@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C5E2C4D1FDCFC999DC71EE1 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7121051438B26EA5E072BF /* LibraryView.swift */; };
+		5CB7B3D78AB81C997768A65C /* Dictation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE835E9BB3C6B99F816B0236 /* Dictation.swift */; };
+		878A187350C84D23A732C2D3 /* SongNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF29475CB4B3837756FAF3C /* SongNotesApp.swift */; };
+		8BD89E50C9C03EE60A866BB1 /* NoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFDE4853E23FB15EC83C9C1 /* NoteEditor.swift */; };
+		9B5E54E84E68760F84C40B75 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB81E9F708E06F23CA9E08 /* Models.swift */; };
+		DB75E547EFBD97F0F1FBBF59 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D792F235D62A7B60B3221 /* SongView.swift */; };
+		E1821155EEDD1CA86D547F0C /* AudioLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF7573F3480FEB5929E759 /* AudioLibrary.swift */; };
+		EB4A4EF011D5F0C23C1A5978 /* PlayerEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAFE8830B0148AA61FADED /* PlayerEngine.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1DF29475CB4B3837756FAF3C /* SongNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNotesApp.swift; sourceTree = "<group>"; };
+		1DFDE4853E23FB15EC83C9C1 /* NoteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditor.swift; sourceTree = "<group>"; };
+		3ACAFE8830B0148AA61FADED /* PlayerEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEngine.swift; sourceTree = "<group>"; };
+		504624C63E6F5B20C4E034A4 /* SongNotes.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SongNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58E6C1B0869E43C5EF3D5517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7EDB81E9F708E06F23CA9E08 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		9D7121051438B26EA5E072BF /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		BE835E9BB3C6B99F816B0236 /* Dictation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictation.swift; sourceTree = "<group>"; };
+		D1CF7573F3480FEB5929E759 /* AudioLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioLibrary.swift; sourceTree = "<group>"; };
+		EA6D792F235D62A7B60B3221 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		036B83E53C6D87B4B3238074 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				504624C63E6F5B20C4E034A4 /* SongNotes.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7996AF672D1DFA351A6B256 = {
+			isa = PBXGroup;
+			children = (
+				FBAFDEE20CF680DFE09D49B7 /* SongNotes */,
+				036B83E53C6D87B4B3238074 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FBAFDEE20CF680DFE09D49B7 /* SongNotes */ = {
+			isa = PBXGroup;
+			children = (
+				D1CF7573F3480FEB5929E759 /* AudioLibrary.swift */,
+				BE835E9BB3C6B99F816B0236 /* Dictation.swift */,
+				58E6C1B0869E43C5EF3D5517 /* Info.plist */,
+				9D7121051438B26EA5E072BF /* LibraryView.swift */,
+				7EDB81E9F708E06F23CA9E08 /* Models.swift */,
+				1DFDE4853E23FB15EC83C9C1 /* NoteEditor.swift */,
+				3ACAFE8830B0148AA61FADED /* PlayerEngine.swift */,
+				1DF29475CB4B3837756FAF3C /* SongNotesApp.swift */,
+				EA6D792F235D62A7B60B3221 /* SongView.swift */,
+			);
+			path = SongNotes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D94E5E50E871642C9A937BD5 /* SongNotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB071BC10558BF15D111403E /* Build configuration list for PBXNativeTarget "SongNotes" */;
+			buildPhases = (
+				12427FB5D44E087EB9B1948D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SongNotes;
+			packageProductDependencies = (
+			);
+			productName = SongNotes;
+			productReference = 504624C63E6F5B20C4E034A4 /* SongNotes.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		269A80C7FE39F63DDB9FAF42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D94E5E50E871642C9A937BD5 = {
+						DevelopmentTeam = 34282XS5YH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F8FCB0D29EC6BE554D30531C /* Build configuration list for PBXProject "SongNotes" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A7996AF672D1DFA351A6B256;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 036B83E53C6D87B4B3238074 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D94E5E50E871642C9A937BD5 /* SongNotes */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12427FB5D44E087EB9B1948D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1821155EEDD1CA86D547F0C /* AudioLibrary.swift in Sources */,
+				5CB7B3D78AB81C997768A65C /* Dictation.swift in Sources */,
+				3C5E2C4D1FDCFC999DC71EE1 /* LibraryView.swift in Sources */,
+				9B5E54E84E68760F84C40B75 /* Models.swift in Sources */,
+				8BD89E50C9C03EE60A866BB1 /* NoteEditor.swift in Sources */,
+				EB4A4EF011D5F0C23C1A5978 /* PlayerEngine.swift in Sources */,
+				878A187350C84D23A732C2D3 /* SongNotesApp.swift in Sources */,
+				DB75E547EFBD97F0F1FBBF59 /* SongView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		15F81611B249A2D4E6E3E72E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		318C56C8EA1EA211DC38439F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34282XS5YH;
+				INFOPLIST_FILE = SongNotes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daveclay.songnotes;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C7509428D9FACB5F8C6658B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D7F973049A4D7E437EB5D3AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34282XS5YH;
+				INFOPLIST_FILE = SongNotes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daveclay.songnotes;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB071BC10558BF15D111403E /* Build configuration list for PBXNativeTarget "SongNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7F973049A4D7E437EB5D3AA /* Debug */,
+				318C56C8EA1EA211DC38439F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F8FCB0D29EC6BE554D30531C /* Build configuration list for PBXProject "SongNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7509428D9FACB5F8C6658B1 /* Debug */,
+				15F81611B249A2D4E6E3E72E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 269A80C7FE39F63DDB9FAF42 /* Project object */;
+}

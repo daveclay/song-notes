@@ -1,0 +1,33 @@
+name: SongNotes
+options:
+  deploymentTarget:
+    iOS: "17.0"
+targets:
+  SongNotes:
+    type: application
+    platform: iOS
+    sources: [SongNotes]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.daveclay.songnotes
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 34282XS5YH
+        MARKETING_VERSION: "0.1"
+        CURRENT_PROJECT_VERSION: "1"
+    info:
+      path: SongNotes/Info.plist
+      properties:
+        CFBundleDisplayName: Song Notes
+        UILaunchScreen: {}
+        UIBackgroundModes: [audio]
+        NSMicrophoneUsageDescription: Song Notes uses the microphone so you can speak a note instead of typing it.
+        NSSpeechRecognitionUsageDescription: Song Notes turns your spoken notes into text.
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        LSSupportsOpeningDocumentsInPlace: false
+        # Lets you send a bounce to the app from Files / AirDrop / the share sheet.
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Audio
+            LSHandlerRank: Alternate
+            LSItemContentTypes: [public.audio]
