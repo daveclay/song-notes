@@ -1,3 +1,4 @@
+import MediaPlayer
 import SwiftData
 import SwiftUI
 import UniformTypeIdentifiers
@@ -12,6 +13,8 @@ struct SongView: View {
     @State private var dictatingNote: Note?
     @State private var resumeAfterDictation = false
     @State private var importing = false
+    @State private var pickingFromMusic = false
+    @State private var copying = false
     @State private var renaming = false
     @State private var errorMessage: String?
 
@@ -82,6 +85,16 @@ struct SongView: View {
             case .success(let url): addVersion(from: url)
             case .failure(let error): errorMessage = error.localizedDescription
             }
+        }
+        .sheet(isPresented: $pickingFromMusic) {
+            MusicLibraryPicker { item in
+                pickingFromMusic = false
+                if let item { addVersion(from: item) }
+            }
+            .ignoresSafeArea()
+        }
+        .overlay {
+            if copying { CopyingOverlay() }
         }
         .alert("Rename Song", isPresented: $renaming) {
             TextField("Title", text: $song.title)
@@ -196,7 +209,8 @@ struct SongView: View {
                 }
             }
             Divider()
-            Button("Add Version…", systemImage: "plus") { importing = true }
+            Button("Add Version from Music Library…", systemImage: "music.note") { pickingFromMusic = true }
+            Button("Add Version from Files…", systemImage: "folder") { importing = true }
             Button("Rename Song…", systemImage: "pencil") { renaming = true }
         } label: {
             Label("Versions", systemImage: "square.stack")
@@ -250,19 +264,34 @@ struct SongView: View {
 
     private func addVersion(from url: URL) {
         do {
-            let imported = try AudioLibrary.importAudio(from: url)
-            let newMix = Mix(
-                label: "v\(song.mixes.count + 1)",
-                fileName: imported.fileName,
-                sourceName: imported.sourceName,
-                duration: imported.duration
-            )
-            newMix.song = song
-            context.insert(newMix)
-            activate(newMix)
+            addVersion(try AudioLibrary.importAudio(from: url))
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+
+    private func addVersion(from item: MPMediaItem) {
+        copying = true
+        Task {
+            defer { copying = false }
+            do {
+                addVersion(try await AudioLibrary.importLibraryItem(item))
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+        }
+    }
+
+    private func addVersion(_ imported: AudioLibrary.Imported) {
+        let newMix = Mix(
+            label: "v\(song.mixes.count + 1)",
+            fileName: imported.fileName,
+            sourceName: imported.sourceName,
+            duration: imported.duration
+        )
+        newMix.song = song
+        context.insert(newMix)
+        activate(newMix)
     }
 
     private var exportText: String {

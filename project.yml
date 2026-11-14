@@ -22,6 +22,7 @@ targets:
         CFBundleDisplayName: Song Notes
         UILaunchScreen: {}
         UIBackgroundModes: [audio]
+        NSAppleMusicUsageDescription: Song Notes copies songs you pick from your Music library so you can take notes on them.
         NSMicrophoneUsageDescription: Song Notes uses the microphone so you can speak a note instead of typing it.
         NSSpeechRecognitionUsageDescription: Song Notes turns your spoken notes into text.
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]

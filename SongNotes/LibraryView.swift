@@ -1,3 +1,4 @@
+import MediaPlayer
 import SwiftData
 import SwiftUI
 import UniformTypeIdentifiers
@@ -9,6 +10,8 @@ struct LibraryView: View {
 
     @State private var path: [Song] = []
     @State private var importing = false
+    @State private var pickingFromMusic = false
+    @State private var copying = false
     @State private var errorMessage: String?
 
     var body: some View {
@@ -18,10 +21,11 @@ struct LibraryView: View {
                     ContentUnavailableView {
                         Label("No songs yet", systemImage: "waveform")
                     } description: {
-                        Text("Import a bounce from Files, or share an audio file to Song Notes from another app.")
+                        Text("Pick a song from your Music library, import a bounce from Files, or share an audio file to Song Notes from another app.")
                     } actions: {
-                        Button("Import Audio") { importing = true }
+                        Button("From Music Library") { pickingFromMusic = true }
                             .buttonStyle(.borderedProminent)
+                        Button("From Files") { importing = true }
                     }
                 } else {
                     List {
@@ -40,7 +44,10 @@ struct LibraryView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button("Import Audio", systemImage: "plus") { importing = true }
+                    Menu("Add Song", systemImage: "plus") {
+                        Button("From Music Library", systemImage: "music.note") { pickingFromMusic = true }
+                        Button("From Files", systemImage: "folder") { importing = true }
+                    }
                 }
             }
         }
@@ -53,6 +60,16 @@ struct LibraryView: View {
         .onOpenURL { url in
             addSong(from: url)
         }
+        .sheet(isPresented: $pickingFromMusic) {
+            MusicLibraryPicker { item in
+                pickingFromMusic = false
+                if let item { addSong(from: item) }
+            }
+            .ignoresSafeArea()
+        }
+        .overlay {
+            if copying { CopyingOverlay() }
+        }
         .alert("Couldn't import audio", isPresented: .constant(errorMessage != nil)) {
             Button("OK") { errorMessage = nil }
         } message: {
@@ -62,21 +79,36 @@ struct LibraryView: View {
 
     private func addSong(from url: URL) {
         do {
-            let imported = try AudioLibrary.importAudio(from: url)
-            let song = Song(title: imported.sourceName)
-            context.insert(song)
-            let mix = Mix(
-                label: "v1",
-                fileName: imported.fileName,
-                sourceName: imported.sourceName,
-                duration: imported.duration
-            )
-            mix.song = song
-            context.insert(mix)
-            path = [song]
+            addSong(try AudioLibrary.importAudio(from: url))
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+
+    private func addSong(from item: MPMediaItem) {
+        copying = true
+        Task {
+            defer { copying = false }
+            do {
+                addSong(try await AudioLibrary.importLibraryItem(item))
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+        }
+    }
+
+    private func addSong(_ imported: AudioLibrary.Imported) {
+        let song = Song(title: imported.sourceName)
+        context.insert(song)
+        let mix = Mix(
+            label: "v1",
+            fileName: imported.fileName,
+            sourceName: imported.sourceName,
+            duration: imported.duration
+        )
+        mix.song = song
+        context.insert(mix)
+        path = [song]
     }
 
     private func delete(at offsets: IndexSet) {
@@ -103,5 +135,14 @@ private struct SongRow: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }
+    }
+}
+
+/// Shown while a song is being copied out of the Music library.
+struct CopyingOverlay: View {
+    var body: some View {
+        ProgressView("Copying song…")
+            .padding(24)
+            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
     }
 }

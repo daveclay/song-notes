@@ -35,6 +35,8 @@
 	<string>1</string>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Song Notes copies songs you pick from your Music library so you can take notes on them.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Song Notes uses the microphone so you can speak a note instead of typing it.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>

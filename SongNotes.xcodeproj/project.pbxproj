@@ -12,6 +12,7 @@
 		878A187350C84D23A732C2D3 /* SongNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF29475CB4B3837756FAF3C /* SongNotesApp.swift */; };
 		8BD89E50C9C03EE60A866BB1 /* NoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFDE4853E23FB15EC83C9C1 /* NoteEditor.swift */; };
 		9B5E54E84E68760F84C40B75 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB81E9F708E06F23CA9E08 /* Models.swift */; };
+		B92C154E9894BAAEABB70C87 /* MusicLibraryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57F682E01A7852FED964EC /* MusicLibraryPicker.swift */; };
 		DB75E547EFBD97F0F1FBBF59 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D792F235D62A7B60B3221 /* SongView.swift */; };
 		E1821155EEDD1CA86D547F0C /* AudioLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF7573F3480FEB5929E759 /* AudioLibrary.swift */; };
 		EB4A4EF011D5F0C23C1A5978 /* PlayerEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAFE8830B0148AA61FADED /* PlayerEngine.swift */; };
@@ -24,6 +25,7 @@
 		504624C63E6F5B20C4E034A4 /* SongNotes.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SongNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E6C1B0869E43C5EF3D5517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7EDB81E9F708E06F23CA9E08 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8A57F682E01A7852FED964EC /* MusicLibraryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLibraryPicker.swift; sourceTree = "<group>"; };
 		9D7121051438B26EA5E072BF /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		BE835E9BB3C6B99F816B0236 /* Dictation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictation.swift; sourceTree = "<group>"; };
 		D1CF7573F3480FEB5929E759 /* AudioLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioLibrary.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				58E6C1B0869E43C5EF3D5517 /* Info.plist */,
 				9D7121051438B26EA5E072BF /* LibraryView.swift */,
 				7EDB81E9F708E06F23CA9E08 /* Models.swift */,
+				8A57F682E01A7852FED964EC /* MusicLibraryPicker.swift */,
 				1DFDE4853E23FB15EC83C9C1 /* NoteEditor.swift */,
 				3ACAFE8830B0148AA61FADED /* PlayerEngine.swift */,
 				1DF29475CB4B3837756FAF3C /* SongNotesApp.swift */,
@@ -126,6 +129,7 @@
 				5CB7B3D78AB81C997768A65C /* Dictation.swift in Sources */,
 				3C5E2C4D1FDCFC999DC71EE1 /* LibraryView.swift in Sources */,
 				9B5E54E84E68760F84C40B75 /* Models.swift in Sources */,
+				B92C154E9894BAAEABB70C87 /* MusicLibraryPicker.swift in Sources */,
 				8BD89E50C9C03EE60A866BB1 /* NoteEditor.swift in Sources */,
 				EB4A4EF011D5F0C23C1A5978 /* PlayerEngine.swift in Sources */,
 				878A187350C84D23A732C2D3 /* SongNotesApp.swift in Sources */,
