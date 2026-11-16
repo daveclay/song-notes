@@ -108,6 +108,8 @@ struct LibraryView: View {
         )
         mix.song = song
         context.insert(mix)
+        // Save first so the song's identity is final before navigating to it.
+        try? context.save()
         path = [song]
     }
 

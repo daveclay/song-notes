@@ -248,6 +248,9 @@ struct SongView: View {
         let note = Note(time: engine.markerTime)
         note.mix = mix
         context.insert(note)
+        // Save first: a new note's identity changes on its first save, which would
+        // otherwise make the sheet close and reopen a few seconds later.
+        try? context.save()
         editingNote = note
     }
 
@@ -256,6 +259,7 @@ struct SongView: View {
         let note = Note(time: engine.markerTime)
         note.mix = mix
         context.insert(note)
+        try? context.save()
         // The song pauses while you talk so the microphone hears you, not the mix.
         resumeAfterDictation = engine.isPlaying
         engine.pause()
@@ -291,6 +295,7 @@ struct SongView: View {
         )
         newMix.song = song
         context.insert(newMix)
+        try? context.save()
         activate(newMix)
     }
 
