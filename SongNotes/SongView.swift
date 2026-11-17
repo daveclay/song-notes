@@ -8,6 +8,7 @@ struct SongView: View {
     @Environment(PlayerEngine.self) private var engine
     @Bindable var song: Song
 
+    @AppStorage(AudioSessionSetup.handsFreeKey) private var handsFree = true
     @State private var mix: Mix?
     @State private var editingNote: Note?
     @State private var dictatingNote: Note?
@@ -110,6 +111,10 @@ struct SongView: View {
                 activate(latest)
             }
         }
+        .task(id: handsFree) {
+            // Ask now, while the app is on screen; iOS can't ask from the lock screen.
+            if handsFree { _ = await Dictation.requestPermissions() }
+        }
     }
 
     // MARK: - Sections
@@ -162,7 +167,7 @@ struct SongView: View {
             ContentUnavailableView {
                 Label("No notes yet", systemImage: "text.bubble")
             } description: {
-                Text("Tap Add Note while listening. In the car or on headphones, press Next Track to drop a marker and fill it in later.")
+                Text("Tap Add Note while listening. In the car or on headphones, press Next Track, wait for the beep, and say your note.")
             }
         } else {
             List {
@@ -212,6 +217,8 @@ struct SongView: View {
             Button("Add Version from Music Library…", systemImage: "music.note") { pickingFromMusic = true }
             Button("Add Version from Files…", systemImage: "folder") { importing = true }
             Button("Rename Song…", systemImage: "pencil") { renaming = true }
+            Divider()
+            Toggle("Next Track Records a Spoken Note", systemImage: "mic", isOn: $handsFree)
         } label: {
             Label("Versions", systemImage: "square.stack")
         }
@@ -235,10 +242,21 @@ struct SongView: View {
             }
         }
         let context = context
+        let engine = engine
         engine.onRemoteMarker = { time in
+            let recorder = HandsFreeRecorder.shared
+            if recorder.isRecording {
+                recorder.finishEarly()
+                return
+            }
+            // The marker is saved first, so the spot is kept even if listening fails.
             let note = Note(time: time)
             note.mix = newMix
             context.insert(note)
+            try? context.save()
+            if AudioSessionSetup.handsFreeEnabled {
+                recorder.record(into: note, context: context, engine: engine)
+            }
         }
     }
 

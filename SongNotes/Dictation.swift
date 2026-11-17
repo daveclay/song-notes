@@ -19,6 +19,9 @@ final class Dictation {
     private static let initialTimeout: TimeInterval = 6
     private static let pauseTimeout: TimeInterval = 2
 
+    /// Called once when listening ends by itself (after a pause in speech or a timeout).
+    @ObservationIgnored var onFinished: (() -> Void)?
+
     @ObservationIgnored private let audioEngine = AVAudioEngine()
     @ObservationIgnored private let cuePlayer = AVAudioPlayerNode()
     @ObservationIgnored private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -28,7 +31,9 @@ final class Dictation {
     /// Closed until the cue has played, so the cue itself isn't transcribed.
     @ObservationIgnored private let gate = OSAllocatedUnfairLock(initialState: false)
 
-    func start() async {
+    /// - Parameter usePhoneMicrophone: listen with the iPhone's own microphone and leave
+    ///   the Bluetooth connection alone, instead of switching to the car or headphone mic.
+    func start(usePhoneMicrophone: Bool = false) async {
         guard await Self.requestPermissions() else {
             errorMessage = "Allow Microphone and Speech Recognition for Song Notes in Settings to speak notes."
             return
@@ -40,7 +45,7 @@ final class Dictation {
 
         do {
             // Connecting a car or headphone microphone can take a few seconds.
-            try await Self.activateSession()
+            try await Self.activateSession(usePhoneMicrophone: usePhoneMicrophone)
             guard !stopped else { return }
 
             let request = SFSpeechAudioBufferRecognitionRequest()
@@ -141,9 +146,11 @@ final class Dictation {
         if done { finish() }
     }
 
-    private func finish() {
+    func finish() {
+        guard !finished else { return }
         stop()
         finished = true
+        onFinished?()
     }
 
     private func scheduleTimeout(_ interval: TimeInterval) {
@@ -157,7 +164,7 @@ final class Dictation {
 
     // These run off the main thread, so they are set up outside the main actor.
 
-    private nonisolated static func requestPermissions() async -> Bool {
+    nonisolated static func requestPermissions() async -> Bool {
         let speechAllowed = await withCheckedContinuation { continuation in
             SFSpeechRecognizer.requestAuthorization { status in
                 continuation.resume(returning: status == .authorized)
@@ -167,12 +174,16 @@ final class Dictation {
         return await AVAudioApplication.requestRecordPermission()
     }
 
-    private nonisolated static func activateSession() async throws {
+    private nonisolated static func activateSession(usePhoneMicrophone: Bool) async throws {
         let session = AVAudioSession.sharedInstance()
-        try session.setCategory(
-            .playAndRecord, mode: .measurement,
-            options: [.allowBluetoothHFP, .defaultToSpeaker]
-        )
+        if usePhoneMicrophone {
+            try AudioSessionSetup.usePhoneMicrophone()
+        } else {
+            try session.setCategory(
+                .playAndRecord, mode: .measurement,
+                options: [.allowBluetoothHFP, .defaultToSpeaker]
+            )
+        }
         try? session.setAllowHapticsAndSystemSoundsDuringRecording(true)
         try session.setActive(true)
     }

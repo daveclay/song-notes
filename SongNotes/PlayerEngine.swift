@@ -68,9 +68,8 @@ final class PlayerEngine {
 
     func play() {
         guard let player else { return }
-        let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(.playback, mode: .default)
-        try? session.setActive(true)
+        AudioSessionSetup.configureForPlayback()
+        try? AVAudioSession.sharedInstance().setActive(true)
         guard player.play() else { return }
         isPlaying = true
         startTimer()
@@ -161,7 +160,7 @@ final class PlayerEngine {
             Task { @MainActor in self?.skip(by: -15) }
             return .success
         }
-        // "Next" drops a marker instead of changing track.
+        // "Next" adds a note (spoken, or a bare marker) instead of changing track.
         center.nextTrackCommand.addTarget { [weak self] _ in
             Task { @MainActor in
                 guard let self, self.loadedMixID != nil else { return }

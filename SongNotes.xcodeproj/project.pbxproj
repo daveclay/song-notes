@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C5E2C4D1FDCFC999DC71EE1 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7121051438B26EA5E072BF /* LibraryView.swift */; };
+		4A8F452C2D789D22E2A4A399 /* HandsFreeRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548F480C96E9E7ECA563A0B /* HandsFreeRecorder.swift */; };
 		5CB7B3D78AB81C997768A65C /* Dictation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE835E9BB3C6B99F816B0236 /* Dictation.swift */; };
 		878A187350C84D23A732C2D3 /* SongNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF29475CB4B3837756FAF3C /* SongNotesApp.swift */; };
 		8BD89E50C9C03EE60A866BB1 /* NoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFDE4853E23FB15EC83C9C1 /* NoteEditor.swift */; };
@@ -27,6 +28,7 @@
 		7EDB81E9F708E06F23CA9E08 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		8A57F682E01A7852FED964EC /* MusicLibraryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLibraryPicker.swift; sourceTree = "<group>"; };
 		9D7121051438B26EA5E072BF /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		A548F480C96E9E7ECA563A0B /* HandsFreeRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsFreeRecorder.swift; sourceTree = "<group>"; };
 		BE835E9BB3C6B99F816B0236 /* Dictation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictation.swift; sourceTree = "<group>"; };
 		D1CF7573F3480FEB5929E759 /* AudioLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioLibrary.swift; sourceTree = "<group>"; };
 		EA6D792F235D62A7B60B3221 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				D1CF7573F3480FEB5929E759 /* AudioLibrary.swift */,
 				BE835E9BB3C6B99F816B0236 /* Dictation.swift */,
+				A548F480C96E9E7ECA563A0B /* HandsFreeRecorder.swift */,
 				58E6C1B0869E43C5EF3D5517 /* Info.plist */,
 				9D7121051438B26EA5E072BF /* LibraryView.swift */,
 				7EDB81E9F708E06F23CA9E08 /* Models.swift */,
@@ -127,6 +130,7 @@
 			files = (
 				E1821155EEDD1CA86D547F0C /* AudioLibrary.swift in Sources */,
 				5CB7B3D78AB81C997768A65C /* Dictation.swift in Sources */,
+				4A8F452C2D789D22E2A4A399 /* HandsFreeRecorder.swift in Sources */,
 				3C5E2C4D1FDCFC999DC71EE1 /* LibraryView.swift in Sources */,
 				9B5E54E84E68760F84C40B75 /* Models.swift in Sources */,
 				B92C154E9894BAAEABB70C87 /* MusicLibraryPicker.swift in Sources */,
